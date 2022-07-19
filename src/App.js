@@ -6,6 +6,7 @@ import Register from "./Component/Register"
 import Cards from "./Component/Cards"
 import Edit from "./Component/EditCard"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddBook from "./Component/AddBook";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cards" element={<Cards />} />
           <Route path="/edit" element={<Edit />} />
+          <Route path="/addbook" element={<AddBook />} />
         </Routes>
       </Router>
     </div>

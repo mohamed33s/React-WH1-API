@@ -17,7 +17,7 @@ export default function EditCard() {
 
     const postData = () => {
       axios
-        .put(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+        .put(`https://62d3e4435112e98e4846e84e.mockapi.io/boodsAPI/${id}`, {
           title,
           body,
         })
@@ -55,7 +55,7 @@ export default function EditCard() {
             rows={3}
           />
         </Form.Group>
-        <Button onClick={postData} variant="primary" type="submit">
+        <Button onClick={postData} variant="primary">
           Edit
         </Button>
       </Form>

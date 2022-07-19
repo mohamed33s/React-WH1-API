@@ -7,28 +7,32 @@ export default function Cards() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((response) => {
-      //   console.log(response.data[0].title);
-      setItems(response.data);
-    });
+    axios
+      .get(`https://62d3e4435112e98e4846e84e.mockapi.io/boodsAPI`)
+      .then((response) => {
+        //   console.log(response.data[0].title);
+        setItems(response.data);
+      });
   }, []);
 
-    const setUdate = (item) => {
-      let { id, title, body } = item;
-      localStorage.setItem("id", id);
-      localStorage.setItem("title", title);
-      localStorage.setItem("body", body);
-    };
+  const setUdate = (item) => {
+    let { id, title, body } = item;
+    localStorage.setItem("id", id);
+    localStorage.setItem("title", title);
+    localStorage.setItem("body", body);
+  };
 
   const getData = () => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((getData) => {
-      setItems(getData.data);
-    });
+    axios
+      .get(`https://62d3e4435112e98e4846e84e.mockapi.io/boodsAPI`)
+      .then((getData) => {
+        setItems(getData.data);
+      });
   };
 
   const onDelete = (id) => {
     axios
-      .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .delete(`https://62d3e4435112e98e4846e84e.mockapi.io/boodsAPI/${id}`)
       .then(() => {
         getData();
       });
@@ -37,7 +41,7 @@ export default function Cards() {
   return (
     <div>
       {items.map((item) => (
-        <Card style={{ margin: "30px", height: "350px", width: "250px" }}>
+        <Card style={{ margin: "30px", height: "380px", width: "250px" }}>
           <Card.Body>
             <Card.Title key={item.id}>{item.title}</Card.Title>
             <Card.Text>{item.body}</Card.Text>
@@ -62,6 +66,14 @@ export default function Cards() {
           </Card.Body>
         </Card>
       ))}
+
+      <div className="mb-2">
+        <Link to="/addbook">
+          <Button variant="primary" size="lg">
+            Add Book
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }
